@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission
+        android:name="com.miniature.menstrumate.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+
+    <application
+        android:name="com.miniature.menstrumate.MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MenstruMate"
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true"
+        tools:targetApi="31">
+        <activity
+            android:name="com.miniature.menstrumate.activity.SplashScreen"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.LoginPinActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name="com.miniature.menstrumate.activity.MainActivity"
+            android:label="@string/app_name_toolbar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.miniature.menstrumate.activity.CustomCalendarActivity"
+            android:label="@string/activity_calendar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="com.miniature.menstrumate.activity.NoteActivity"
+            android:label="@string/menu_add_note"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNote">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.SettingsActivity"
+            android:label="@string/app_name_toolbar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.PinInsertActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.CycleLenghtActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.PeriodLengthActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.OvulationActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.UnitsActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.AccountsActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.LanguageActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.MoodsActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.NewMoodActivity"
+            android:label="@string/menu_note_moods"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.MoodsActivity" />
+        </activity>
+
+        <activity
+            android:name="com.miniature.menstrumate.activity.PillsActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.NewPillActivity"
+            android:label="@string/pills_title"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.PillsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.SymptomsActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.NewSymptomActivity"
+            android:label="@string/menu_note_symptoms"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SymptomsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.BackupActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.RestoreActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.OpenBackupEmailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="gmail-ls"
+                    android:mimeType="application/octet-stream"
+                    android:scheme="content" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.GommoActivity"
+            android:label="@string/menu_note"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting" />
+        <activity
+            android:name="com.miniature.menstrumate.activity.PillsFragment5Activity"
+            android:label="@string/menu_note_others"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting" />
+        <activity
+            android:name="com.miniature.menstrumate.activity.ExtraDetailsActivity"
+            android:label="@string/menu_note"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting" />
+        <activity
+            android:name="com.miniature.menstrumate.activity.BloodPressureActivity"
+            android:label="@string/menu_note"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting" />
+        <activity
+            android:name="com.miniature.menstrumate.activity.LegendaCalendarActivity"
+            android:label="@string/menu_calendar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeLegenda">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.CustomCalendarActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.ShowHideActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.LogActivity"
+            android:label="@string/app_name_toolbar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNote">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.ChartsActivity"
+            android:label="@string/app_name_toolbar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNote">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.ProgressActivity"
+            android:label="@string/app_name_toolbar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNote">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.CycleWikiActivity"
+            android:label="@string/main_cycle"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNote">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.ProgressActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.NotificationsActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.NotificationDetailActivity"
+            android:label="@string/settings_notifiche"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.NotificationsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.NewAlarmActivity"
+            android:label="@string/settings_notifiche"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.NotificationsActivity" />
+        </activity>
+        <activity
+            android:name="com.miniature.menstrumate.activity.PregnancyActivity"
+            android:label="@string/app_name_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSetting">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.miniature.menstrumate.activity.SettingsActivity" />
+        </activity>
+
+        <receiver
+            android:name="com.miniature.menstrumate.servise.MenstruMateBootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.miniature.menstrumate.servise.MenstruMateAlarmReceiver"
+            android:enabled="true" />
+
+        <service android:name="com.miniature.menstrumate.servise.MenstruMateSchedulingService" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" /> <!-- Activity required to show ad overlays. -->
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.miniature.menstrumate.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+
+        <activity
+            android:name="com.miniature.menstrumate.pill_reminder.Pill_MainActivity"
+            android:theme="@style/AppThemeNote"
+            />
+        <activity
+            android:name="com.miniature.menstrumate.pill_reminder.ReminderAddActivity"
+            android:label="@string/title_activity_add_reminder"
+            android:theme="@style/AppThemeNote"
+            />
+        <activity
+            android:name="com.miniature.menstrumate.pill_reminder.ReminderEditActivity"
+            android:label="@string/title_activity_edit_reminder"
+            android:theme="@style/AppThemeNote"
+
+            />
+
+        <receiver android:name="com.miniature.menstrumate.pill_reminder.AlarmReceiver" />
+        <receiver android:name="com.miniature.menstrumate.pill_reminder.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
